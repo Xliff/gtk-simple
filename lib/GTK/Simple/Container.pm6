@@ -17,12 +17,20 @@ method set_content($widget) {
     self.set-content($widget);
 }
 
-method border-width 
+method get-focus-child($container) {
+  gtk_container_get_focus_child($container);
+}
+
+method set-focus-child($container, $widget) {
+  gtk_container_set_focus_child($container, $widget);
+}
+
+method border-width
     returns Int
     is gtk-property(&gtk_container_get_border_width, &gtk_container_set_border_width)
     { * }
 
-method border_width() { 
+method border_width() {
     DEPRECATED('border-width',Any,'0.3.2');
     self.border-width
 }

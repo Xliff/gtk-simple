@@ -55,7 +55,7 @@ sub gtk_widget_show(GtkWidget $widgetw)
 
 sub gtk_widget_hide(GtkWidget $widgetw)
     is native(&gtk-lib)
-    is export    
+    is export
     { * }
 
 sub gtk_widget_show_all(GtkWidget $widgetw)
@@ -68,7 +68,7 @@ sub gtk_widget_set_no_show_all(GtkWidget $widgetw, int32 $no_show_all)
     is export
     { * }
 
-sub gtk_widget_get_no_show_all(GtkWidget $widgetw) 
+sub gtk_widget_get_no_show_all(GtkWidget $widgetw)
     returns int32
     is native(&gtk-lib)
     is export
@@ -160,6 +160,17 @@ sub gtk_container_get_border_width(GtkWidget $container)
     {*}
 
 sub gtk_container_set_border_width(GtkWidget $container, int32 $border_width)
+    is native(&gtk-lib)
+    is export
+    {*}
+
+sub gtk_container_get_focus_child(GtkWidget $container)
+    returns GtkWidget
+    is native(&gtk-lib)
+    is export
+    {*}
+
+sub gtk_container_set_focus_child(GtkWidget $container, GtkWidget $child)
     is native(&gtk-lib)
     is export
     {*}
@@ -388,23 +399,23 @@ sub gtk_scale_new_with_range( int32 $orientation, num64 $min, num64 $max, num64 
 # vertical = 1 , inverts so that big numbers at top.
 sub gtk_scale_set_digits( GtkWidget $scale, int32 $digits )
     is native( &gtk-lib)
-    is export(:scale)    
+    is export(:scale)
     {*}
-    
+
 sub gtk_range_get_value( GtkWidget $scale )
     is native(&gtk-lib)
-    is export(:scale)    
+    is export(:scale)
     returns num64
     {*}
-    
+
 sub gtk_range_set_value( GtkWidget $scale, num64 $value )
     is native(&gtk-lib)
-    is export(:scale)    
+    is export(:scale)
     {*}
 
 sub gtk_range_set_inverted( GtkWidget $scale, Bool $invertOK )
     is native(&gtk-lib)
-    is export(:scale)    
+    is export(:scale)
     {*}
 
 #
@@ -657,23 +668,23 @@ sub gtk_text_buffer_set_text(OpaquePointer $buffer, Str $text, int32 $len)
     is export(:text-view)
     {*}
 
-sub gtk_text_view_set_editable(GtkWidget $widget, int32 $setting) 
+sub gtk_text_view_set_editable(GtkWidget $widget, int32 $setting)
     is native(&gtk-lib)
     is export(:text-view)
     { * }
 
-sub gtk_text_view_get_editable(GtkWidget $widget) 
+sub gtk_text_view_get_editable(GtkWidget $widget)
     is native(&gtk-lib)
     is export(:text-view)
     returns int32
     { * }
 
-sub gtk_text_view_set_cursor_visible(GtkWidget $widget, int32 $setting) 
+sub gtk_text_view_set_cursor_visible(GtkWidget $widget, int32 $setting)
     is native(&gtk-lib)
     is export(:text-view)
     { * }
 
-sub gtk_text_view_get_cursor_visible(GtkWidget $widget) 
+sub gtk_text_view_get_cursor_visible(GtkWidget $widget)
     is native(&gtk-lib)
     is export(:text-view)
     returns int32
@@ -809,7 +820,7 @@ sub gtk_places_sidebar_new()
     is export(:places-sidebar)
     { * }
 
-sub gtk_places_sidebar_get_open_flags(GtkWidget $sidebar) 
+sub gtk_places_sidebar_get_open_flags(GtkWidget $sidebar)
     returns int32
     is native(&gtk-lib)
     is export(:places-sidebar)
@@ -820,13 +831,13 @@ sub gtk_places_sidebar_get_local_only(GtkWidget $sidebar)
     is native(&gtk-lib)
     is export(:places-sidebar)
     { * }
-    
+
 sub gtk_places_sidebar_set_local_only(GtkWidget $sidebar, Bool $local-only)
     is native(&gtk-lib)
     is export(:places-sidebar)
     { * }
 
-sub gtk_places_sidebar_set_open_flags(GtkWidget $sidebar, int32 $flags) 
+sub gtk_places_sidebar_set_open_flags(GtkWidget $sidebar, int32 $flags)
     is native(&gtk-lib)
     is export(:places-sidebar)
     { * }
@@ -838,13 +849,13 @@ sub gtk_places_sidebar_get_show_connect_to_server(GtkWidget $siderbar)
     { * }
 
 sub gtk_places_sidebar_set_show_connect_to_server(
-    GtkWidget $sidebar, 
+    GtkWidget $sidebar,
     Bool $show-connect-to-server)
     is native(&gtk-lib)
     is export(:places-sidebar)
     { * }
 
-sub gtk_places_sidebar_get_show_desktop(GtkWidget $sidebar) 
+sub gtk_places_sidebar_get_show_desktop(GtkWidget $sidebar)
     returns Bool
     is native(&gtk-lib)
     is export(:places-sidebar)
@@ -1006,13 +1017,10 @@ sub gtk_scrolled_window_new(Pointer $h-adjustment, Pointer $v-adjustment)
     is native(&gtk-lib)
     is export(:scrolled-window)
     { * }
-    
-sub gtk_scrolled_window_set_policy(GtkWidget $scrolled_window, 
-                                  int32 $h-bar-policy, 
+
+sub gtk_scrolled_window_set_policy(GtkWidget $scrolled_window,
+                                  int32 $h-bar-policy,
                                   int32 $v-bar-policy)
     is native(&gtk-lib)
     is export(:scrolled-window)
     { * }
-    
-                                   
-
