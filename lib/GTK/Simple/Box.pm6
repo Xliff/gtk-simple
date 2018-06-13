@@ -36,12 +36,14 @@ multi method pack-start($widget) {
     self.pack-start($widget, True, True, 0);
 }
 
-multi method pack_start($widget) {
-    DEPRECATED('pack-start',Any,'0.3.2');
+multi method pack_start($widget)
+    #is DEPRECATED('pack-start',Any,'0.3.2');
+    is DEPRECATED('pack-start')
+{
     self.pack-start($widget);
 }
 
-method spacing 
+method spacing
     returns Int
     is gtk-property(&gtk_box_get_spacing, &gtk_box_set_spacing)
     { * }

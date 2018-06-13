@@ -24,17 +24,30 @@ method WINDOW() {
     $result;
 }
 
-method sensitive() 
-    returns Bool 
-    is gtk-property(&gtk_widget_get_sensitive, &gtk_widget_set_sensitive) 
+# method grab-focus
+#   is aka<grab_focus>
+# {
+#   gtk_widget_grab_focus($!gtk_widget);
+# }
+#
+# method has-focus
+#   is aka<is-focus>
+#   is aka<has_focus>
+# {
+#   ( gtk_widget_is_focus($!gtk_widget) ).Bool;
+# }
+
+method sensitive()
+    returns Bool
+    is gtk-property(&gtk_widget_get_sensitive, &gtk_widget_set_sensitive)
     { * }
 
-method tooltip-text() 
-    returns Str 
+method tooltip-text()
+    returns Str
     is gtk-property(&gtk_widget_get_tooltip_text, &gtk_widget_set_tooltip_text)
     { * }
 
-method no-show-all() 
+method no-show-all()
     returns Bool
     is gtk-property(&gtk_widget_get_no_show_all, &gtk_widget_set_no_show_all)
     { * }
@@ -73,8 +86,10 @@ method signal-supply(Str $name) {
     $s.Supply;
 }
 
-method signal_supply(Str $name) {
-    DEPRECATED('signal-supply',Any,'0.3.2');
+method signal_supply(Str $name)
+  #is DEPRECATED('signal-supply',Any,'0.3.2');
+  is DEPRECATED('signal-supply')
+{
     self.signal-supply($name);
 }
 
@@ -82,8 +97,10 @@ method size-request(Cool $width, Cool $height) {
     gtk_widget_set_size_request($!gtk_widget, $width.Int, $height.Int);
 }
 
-method size_request(Cool $width, Cool $height) {
-    DEPRECATED('size-request',Any,'0.3.2');
+method size_request(Cool $width, Cool $height)
+  #is DEPRECATED('size-request',Any,'0.3.2')
+  is DEPRECATED('size-request')
+{
     self.size-request($width, $height);
 }
 
@@ -98,8 +115,10 @@ method queue-draw() {
     gtk_widget_queue_draw($!gtk_widget);
 }
 
-method queue_draw() { 
-    DEPRECATED('queue-draw',Any,'0.3.2');
+method queue_draw()
+  #is DEPRECATED('queue-draw',Any,'0.3.2')
+  is DEPRECATED('queue-draw')
+{
     self.queue-draw();
 }
 

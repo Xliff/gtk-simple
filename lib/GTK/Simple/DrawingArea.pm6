@@ -36,7 +36,9 @@ method add-draw-handler(&handler) {
         :handler(g_signal_connect_wd($!gtk_widget, "draw", &handler_wrapper, OpaquePointer, 0)));
 }
 
-method add_draw_handler(&handler) {
-    DEPRECATED('add-draw-handler',Any,'0.3.2');
+method add_draw_handler(&handler)
+    #is DEPRECATED('add-draw-handler',Any,'0.3.2');
+    is DEPRECATED('add-draw-handler')
+{
     self.add-draw-handler(&handler);
 }

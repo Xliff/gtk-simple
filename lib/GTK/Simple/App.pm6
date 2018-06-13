@@ -44,7 +44,6 @@ method exit() {
     gtk_main_quit();
 }
 
-
 method run() {
     self.show();
     gtk_main();
@@ -65,7 +64,9 @@ method g-timeout(Cool $usecs) {
     return $s.Supply;
 }
 
-method g_timeout(Cool $usecs) {
-    DEPRECATED('g-timeout',Any,'0.3.2');
+method g_timeout(Cool $usecs)
+    #is DEPRECATED('g-timeout',Any,'0.3.2');
+    is DEPRECATED('g-timeout')
+{
     self.g-timeout($usecs);
 }

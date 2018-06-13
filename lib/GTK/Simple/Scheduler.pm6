@@ -38,8 +38,10 @@ method process-queue() {
     }
 }
 
-method process_queue() {
-    DEPRECATED('process-queue',Any,'0.3.2');
+method process_queue()
+    #is DEPRECATED('process-queue',Any,'0.3.2');
+    is DEPRECATED('process-queue')
+{
     self.process-queue();
 }
 
