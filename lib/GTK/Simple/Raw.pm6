@@ -107,17 +107,6 @@ sub gtk_widget_get_allocated_width(GtkWidget $widget)
     is export
     {*}
 
-sub gtk_widget_grab_focus(GtkWidget $widget)
-    is native(&gtk-lib)
-    is export
-    {*}
-
-sub gtk_widget_is_focus(GtkWidget $widget)
-    returns int32
-    is native(&gtk-lib)
-    is export
-    {*}
-
 sub gtk_widget_queue_draw(GtkWidget $widget)
     is native(&gtk-lib)
     is export
@@ -1036,13 +1025,16 @@ sub gtk_scrolled_window_set_policy(GtkWidget $scrolled_window,
     is export(:scrolled-window)
     { * }
 
-sub gtk_widget_grab_focus(GtkWidget $widget)
-    is native(&gtk-lib)
-    is export
-    { * }
-
+#
+# Window
+#
 sub gtk_widget_is_focus(GtkWidget $widget)
-    returns int32
-    is native(&gtk-lib)
-    is export
-    { * }
+  returns int32
+  is native(&gtk-lib)
+  is export
+  { * }
+
+sub gtk_widget_grab_focus(GtkWidget $widget)
+  is native(&gtk-lib)
+  is export
+  { * }

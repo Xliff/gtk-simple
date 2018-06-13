@@ -25,7 +25,7 @@ $app.set-content(
 $app.border-width = 20;
 $zero.clicked.tap({
   $first.grab-focus;
-  die "'First' Button not set as focus"  unless  $first.has-focus;
+  die "'First' Button not set as focus"  unless $first.has-focus;
 
   $second.grab-focus;
   die "'Second' Button not set as focus" unless $second.has-focus;

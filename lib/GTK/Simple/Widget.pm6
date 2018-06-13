@@ -12,7 +12,7 @@ has $!gtk_widget;
 has $!deleted_supply;
 
 multi method WIDGET() {
-    $!gtk_widget
+    $!gtk_widget;
 }
 
 multi method WIDGET($gtk-widget) {
@@ -73,6 +73,15 @@ method events {
         }
     }
     GdkEventMaskWrapper.new
+}
+
+method has-focus {
+  #gtk_container_get_focus_child(self.WIDGET) === $widget.WIDGET;
+  ( gtk_widget_is_focus(self.WIDGET) ).Bool;
+}
+
+method grab-focus {
+  gtk_widget_grab_focus(self.WIDGET);
 }
 
 method signal-supply(Str $name) {
